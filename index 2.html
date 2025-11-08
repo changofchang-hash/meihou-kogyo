@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="有限会社明朋工業 - 埼玉県草加市の金属建築専門企業。ステンレス製建具、アルミ笠木、スチール製建具など各種金属工事を承ります。">
+    <meta name="keywords" content="明朋工業,金属建築,ステンレス建具,アルミ笠木,埼玉県,草加市">
+    <meta name="author" content="有限会社 明朋工業">
+    <title>有限会社 明朋工業 | 埼玉県草加市の金属建築専門企業</title>
+    
+    <!-- 外部フォントとアイコン -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- ===================================== 
+         CSS スタイル（埋め込み）
+         ===================================== -->
+    <style>
+        /* CSS変数定義 */
+        :root {
+            --primary-color: #1a5490;
+            --secondary-color: #f39c12;
+            --accent-color: #e74c3c;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --white: #ffffff;
+            --gray: #7f8c8d;
+            --light-gray: #bdc3c7;
+            --success: #27ae60;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-hover: rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s ease;
+        }
+
+        /* リセットCSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===================================== 
+           ヘッダー
+           ===================================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .company-subtitle {
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark-color);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        /* ===================================== 
+           ヒーローセクション
+           ===================================== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2980b9 100%);
+            color: var(--white);
+            margin-top: 70px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,101.3C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.5;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--white);
+            border-color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 2rem;
+            color: var(--white);
+            opacity: 0.7;
+        }
+
+        /* ===================================== 
+           共通セクションスタイル
+           ===================================== */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section:nth-child(even) {
+            background-color: var(--light-color);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .title-underline {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===================================== 
+           会社概要セクション
+           ===================================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px var(--shadow-hover);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--primary-color), #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.8rem;
+        }
+
+        .about-card h3 {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        .about-card p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-top: 5px;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+
+        .contact-item p {
+            color: var(--gray);
+        }
+
+        .history {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .history h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--light-gray);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 2px var(--primary-color);
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .timeline-content p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 5px;
+        }
+
+
+
+        /* ===================================== 
+           事業内容セクション
+           ===================================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px var(--shadow-hover);
+            border-top-color: var(--primary-color);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, var(--primary-color), #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotateY(360deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* ===================================== 
+           施工実績セクション
+           ===================================== */
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            padding: 12px 30px;
+            border: 2px solid var(--primary-color);
+            background: var(--white);
+            color: var(--primary-color);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .projects-timeline {
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+
+        .project-item {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: var(--transition);
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-item.hidden {
+            display: none;
+        }
+
+        .project-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px var(--shadow-hover);
+        }
+
+        .project-year {
+            min-width: 100px;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            padding: 10px;
+            background: var(--light-color);
+            border-radius: 10px;
+            text-align: center;
+            height: fit-content;
+        }
+
+        .project-details h3 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .project-type {
+            display: inline-block;
+            padding: 5px 15px;
+            background: var(--secondary-color);
+            color: var(--white);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 40px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            position: relative;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-item .percent {
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* ===================================== 
+           お問い合わせセクション
+           ===================================== */
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .method-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .method-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px var(--shadow-hover);
+        }
+
+        .method-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--primary-color), #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.8rem;
+        }
+
+        .method-card h3 {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .method-detail {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .method-note {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .map-section {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .map-section h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .address-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background: var(--light-color);
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .address-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .postal-code {
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+
+        .address {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .map-placeholder {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        /* ===================================== 
+           フッター
+           ===================================== */
+        .footer {
+            background: var(--dark-color);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .footer-section p {
+            color: var(--light-gray);
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            color: var(--light-gray);
+            margin-bottom: 10px;
+            padding-left: 0;
+        }
+
+        .footer-section ul li i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            color: var(--light-gray);
+        }
+
+        /* ===================================== 
+           ページトップへ戻るボタン
+           ===================================== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 20px var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* ===================================== 
+           アニメーション
+           ===================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        /* ===================================== 
+           レスポンシブデザイン
+           ===================================== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--white);
+                transition: var(--transition);
+                padding: 40px 0;
+                box-shadow: 0 5px 20px var(--shadow);
+            }
+
+            .nav.active {
+                left: 0;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                gap: 0;
+                text-align: center;
+            }
+
+            .nav ul li {
+                padding: 15px 0;
+                border-bottom: 1px solid var(--light-color);
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-grid,
+            .services-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-item {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .project-year {
+                width: fit-content;
+            }
+
+            .stats-section {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+
+            .company-subtitle {
+                font-size: 0.75rem;
+            }
+
+            .hero-title {
+                font-size: 1.6rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .contact-info,
+            .history,
+            .map-section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===================================== 
+         HTML コンテンツ
+         ===================================== -->
+    
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>有限会社 明朋工業</h1>
+                    <p class="company-subtitle">金属建築専門企業</p>
+                </div>
+                <nav class="nav" id="mainNav">
+                    <ul>
+                        <li><a href="#home" class="nav-link">ホーム</a></li>
+                        <li><a href="#about" class="nav-link">会社概要</a></li>
+                        <li><a href="#services" class="nav-link">事業内容</a></li>
+                        <li><a href="#projects" class="nav-link">施工実績</a></li>
+                        <li><a href="#contact" class="nav-link">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2 class="hero-title">確かな技術で金属建築を支える</h2>
+            <p class="hero-subtitle">埼玉県草加市を拠点に、高品質な金属建築工事を提供</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">事業内容を見る</a>
+                <a href="#contact" class="btn btn-secondary">お問い合わせ</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- 会社概要セクション -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">会社概要</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>会社名</h3>
+                        <p>有限会社 明朋工業</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>代表者</h3>
+                        <p>代表取締役社長 豊島 健</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>本社所在地</h3>
+                        <p>〒340-0033<br>埼玉県草加市柳島町270番地19</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-yen-sign"></i>
+                        </div>
+                        <h3>資本金</h3>
+                        <p>5,000,000円</p>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <h3>お問い合わせ先</h3>
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>TEL</strong>
+                                <p>048-927-3018</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-fax"></i>
+                            <div>
+                                <strong>FAX</strong>
+                                <p>048-927-3026</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>E-mail</strong>
+                                <p>meihou.kougyou@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-university"></i>
+                            <div>
+                                <strong>取引銀行</strong>
+                                <p>瀧野川信用金庫 新郷支店</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history">
+                    <h3>沿革</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">平成3年2月</div>
+                            <div class="timeline-content">
+                                <p>東京都足立区中央本町3丁目10番24号に本店を置く</p>
+                                <p>資本金500万円で設立</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">平成5年2月</div>
+                            <div class="timeline-content">
+                                <p>埼玉県草加市柳島町270番地19に本店を移転</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 事業内容セクション -->
+    <section class="section services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">事業内容</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">多様な金属建築工事に対応しています</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-door-closed"></i>
+                    </div>
+                    <h3>ステンレス製建具</h3>
+                    <p>高品質なステンレス製の建具を製作・施工いたします。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>アルミ笠木</h3>
+                    <p>耐久性と美観を兼ね備えたアルミ笠木工事を提供します。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>スチール製建具</h3>
+                    <p>強度と機能性を追求したスチール製建具の施工を行います。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>ベランダ手摺工事</h3>
+                    <p>安全性とデザイン性を両立したベランダ手摺を提供します。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-border-style"></i>
+                    </div>
+                    <h3>フェンス・門扉</h3>
+                    <p>敷地の境界や入口を美しく守るフェンス・門扉工事。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>カーポート</h3>
+                    <p>大切な車両を守る機能的なカーポートを施工します。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>スパンドレル</h3>
+                    <p>建築物の外観を美しく仕上げるスパンドレル工事。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <h3>アルミパネル金属工事</h3>
+                    <p>軽量で耐久性に優れたアルミパネルの施工を行います。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-square"></i>
+                    </div>
+                    <h3>外装パネル工事</h3>
+                    <p>建物の外観と性能を向上させる外装パネル工事。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-border-all"></i>
+                    </div>
+                    <h3>グレーチング</h3>
+                    <p>排水や換気に最適なグレーチングの製作・設置。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-window-maximize"></i>
+                    </div>
+                    <h3>カーテンボックス</h3>
+                    <p>インテリアを美しく仕上げるカーテンボックス工事。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 施工実績セクション -->
+    <section class="section projects-section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">主な施工実績</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">豊富な経験と確かな技術で数々のプロジェクトを手掛けています</p>
+            </div>
+            
+            <div class="projects-filter">
+                <button class="filter-btn active" data-year="all">すべて</button>
+                <button class="filter-btn" data-year="2023">令和5年</button>
+                <button class="filter-btn" data-year="2022">令和4年</button>
+                <button class="filter-btn" data-year="2021">令和3年</button>
+                <button class="filter-btn" data-year="2020">令和2年</button>
+                <button class="filter-btn" data-year="2019">令和元年</button>
+            </div>
+
+            <div class="projects-timeline">
+                <div class="project-item" data-year="2023">
+                    <div class="project-year">令和5年</div>
+                    <div class="project-details">
+                        <h3>葛飾区子ども未来プラザ新築工事</h3>
+                        <p class="project-type">公共施設</p>
+                    </div>
+                </div>
+                <div class="project-item" data-year="2022">
+                    <div class="project-year">令和4年</div>
+                    <div class="project-details">
+                        <h3>東京彫刻工業八街工場新築工事</h3>
+                        <p class="project-type">工場施設</p>
+                    </div>
+                </div>
+                <div class="project-item" data-year="2021">
+                    <div class="project-year">令和3年</div>
+                    <div class="project-details">
+                        <h3>江東区田崎ビル改修工事</h3>
+                        <p class="project-type">商業施設</p>
+                    </div>
+                </div>
+                <div class="project-item" data-year="2020">
+                    <div class="project-year">令和2年</div>
+                    <div class="project-details">
+                        <h3>新宿区立戸塚第3小学校改修工事</h3>
+                        <p class="project-type">教育施設</p>
+                    </div>
+                </div>
+                <div class="project-item" data-year="2019">
+                    <div class="project-year">令和元年</div>
+                    <div class="project-details">
+                        <h3>上野動物公園新築工事</h3>
+                        <p class="project-type">公共施設</p>
+                    </div>
+                </div>
+                <div class="project-item" data-year="2019">
+                    <div class="project-year">平成31年</div>
+                    <div class="project-details">
+                        <h3>黎明保育園新築工事</h3>
+                        <p class="project-type">教育施設</p>
+                    </div>
+                </div>
+                <div class="project-item" data-year="2018">
+                    <div class="project-year">平成30年</div>
+                    <div class="project-details">
+                        <h3>ダイドー東京ロボット館新築工事</h3>
+                        <p class="project-type">商業施設</p>
+                    </div>
+                </div>
+                <div class="project-item" data-year="2017">
+                    <div class="project-year">平成29年</div>
+                    <div class="project-details">
+                        <h3>特別養護老人ホームあけみ苑新築工事</h3>
+                        <p class="project-type">福祉施設</p>
+                    </div>
+                </div>
+                <div class="project-item" data-year="2016">
+                    <div class="project-year">平成28年</div>
+                    <div class="project-details">
+                        <h3>特別養護老人ホーム大森西新築工事</h3>
+                        <p class="project-type">福祉施設</p>
+                    </div>
+                </div>
+                <div class="project-item" data-year="2016">
+                    <div class="project-year">平成28年</div>
+                    <div class="project-details">
+                        <h3>JA東京スマイル奥戸支店新築工事</h3>
+                        <p class="project-type">商業施設</p>
+                    </div>
+                </div>
+                <div class="project-item" data-year="2015">
+                    <div class="project-year">平成27年</div>
+                    <div class="project-details">
+                        <h3>戸田市福祉センター新築工事</h3>
+                        <p class="project-type">公共施設</p>
+                    </div>
+                </div>
+                <div class="project-item" data-year="2014">
+                    <div class="project-year">平成26年</div>
+                    <div class="project-details">
+                        <h3>特別養護老人ホーム栗橋新築工事</h3>
+                        <p class="project-type">福祉施設</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="30">0</div>
+                    <div class="stat-label">年以上の実績</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="200">0</div>
+                    <div class="stat-label">施工件数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="100">0</div>
+                    <div class="stat-label">満足度</div>
+                    <span class="percent">%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お問い合わせセクション -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">お問い合わせ</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">お気軽にお問い合わせください</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-methods">
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>お電話でのお問い合わせ</h3>
+                        <p class="method-detail">048-927-3018</p>
+                        <p class="method-note">受付時間：平日 9:00〜18:00</p>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-fax"></i>
+                        </div>
+                        <h3>FAXでのお問い合わせ</h3>
+                        <p class="method-detail">048-927-3026</p>
+                        <p class="method-note">24時間受付</p>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>メールでのお問い合わせ</h3>
+                        <p class="method-detail">meihou.kougyou@gmail.com</p>
+                        <p class="method-note">24時間受付・2営業日以内に返信</p>
+                    </div>
+                </div>
+
+                <div class="map-section">
+                    <h3>アクセス</h3>
+                    <div class="address-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <p class="postal-code">〒340-0033</p>
+                            <p class="address">埼玉県草加市柳島町270番地19</p>
+                        </div>
+                    </div>
+                    <div class="map-placeholder">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3236.8!2d139.8!3d35.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQ4JzAwLjAiTiAxMznCsDQ4JzAwLjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890"
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy"
+                            title="明朋工業の地図">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>有限会社 明朋工業</h3>
+                    <p>埼玉県草加市の金属建築専門企業</p>
+                    <p>確かな技術と豊富な経験で、お客様のニーズにお応えします。</p>
+                </div>
+                <div class="footer-section">
+                    <h4>事業内容</h4>
+                    <ul>
+                        <li>ステンレス製建具</li>
+                        <li>アルミ笠木</li>
+                        <li>スチール製建具</li>
+                        <li>外装パネル工事</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>お問い合わせ</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 048-927-3018</li>
+                        <li><i class="fas fa-fax"></i> 048-927-3026</li>
+                        <li><i class="fas fa-envelope"></i> meihou.kougyou@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>所在地</h4>
+                    <p>〒340-0033<br>埼玉県草加市柳島町270番地19</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 有限会社 明朋工業 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ページトップへ戻るボタン -->
+    <button class="back-to-top" id="backToTop" aria-label="ページトップへ">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ===================================== 
+         JavaScript （埋め込み）
+         ===================================== -->
+    <script>
+        'use strict';
+
+        // グローバル変数
+        let lastScrollPosition = 0;
+
+        // DOMの読み込み完了後に実行
+        document.addEventListener('DOMContentLoaded', function() {
+            initMobileMenu();
+            initSmoothScroll();
+            initBackToTop();
+            initProjectFilters();
+            initStatsAnimation();
+            initScrollAnimations();
+            initHeaderScroll();
+            updateActiveNavLink();
+        });
+
+        // モバイルメニューの初期化
+        function initMobileMenu() {
+            const menuToggle = document.getElementById('menuToggle');
+            const nav = document.getElementById('mainNav');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            if (menuToggle && nav) {
+                menuToggle.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                    this.classList.toggle('active');
+                    
+                    const spans = this.querySelectorAll('span');
+                    if (this.classList.contains('active')) {
+                        spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                        spans[1].style.opacity = '0';
+                        spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+                    } else {
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        nav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                        const spans = menuToggle.querySelectorAll('span');
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    });
+                });
+            }
+        }
+
+        // スムーズスクロールの初期化
+        function initSmoothScroll() {
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // ページトップへ戻るボタンの初期化
+        function initBackToTop() {
+            const backToTopButton = document.getElementById('backToTop');
+            
+            if (backToTopButton) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.add('show');
+                    } else {
+                        backToTopButton.classList.remove('show');
+                    }
+                });
+
+                backToTopButton.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        }
+
+        // プロジェクトフィルターの初期化
+        function initProjectFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectItems = document.querySelectorAll('.project-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filterYear = this.getAttribute('data-year');
+
+                    projectItems.forEach(item => {
+                        const itemYear = item.getAttribute('data-year');
+                        
+                        if (filterYear === 'all') {
+                            item.classList.remove('hidden');
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else if (itemYear === filterYear) {
+                            item.classList.remove('hidden');
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.classList.add('hidden');
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        }
+
+        // 統計数値のアニメーション
+        function initStatsAnimation() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            let animationTriggered = false;
+
+            function animateStats() {
+                if (animationTriggered) return;
+
+                const statsSection = document.querySelector('.stats-section');
+                if (!statsSection) return;
+
+                const sectionPosition = statsSection.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (sectionPosition < screenPosition) {
+                    animationTriggered = true;
+
+                    statNumbers.forEach(stat => {
+                        const target = parseInt(stat.getAttribute('data-target'));
+                        const duration = 2000;
+                        const increment = target / (duration / 16);
+                        let current = 0;
+
+                        const updateCounter = () => {
+                            current += increment;
+                            if (current < target) {
+                                stat.textContent = Math.floor(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                stat.textContent = target;
+                            }
+                        };
+
+                        updateCounter();
+                    });
+                }
+            }
+
+            window.addEventListener('scroll', animateStats);
+            animateStats();
+        }
+
+        // スクロールアニメーションの初期化
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            const animateElements = document.querySelectorAll(
+                '.about-card, .service-card, .method-card, .timeline-item'
+            );
+
+            animateElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(element);
+            });
+        }
+
+        // ヘッダーのスクロール効果
+        function initHeaderScroll() {
+            const header = document.querySelector('.header');
+            
+            window.addEventListener('scroll', function() {
+                const currentScroll = window.pageYOffset;
+
+                if (currentScroll > 100) {
+                    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+                    header.style.padding = '10px 0';
+                } else {
+                    header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                    header.style.padding = '15px 0';
+                }
+
+                lastScrollPosition = currentScroll;
+            });
+        }
+
+        // アクティブナビゲーションリンクのハイライト
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('.section, .hero');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                const scrollPosition = window.pageYOffset;
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        current = sectionId;
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const href = link.getAttribute('href');
+                    if (href === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // ページ読み込み完了時のアニメーション
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+            
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent) {
+                heroContent.style.opacity = '1';
+                heroContent.style.transform = 'translateY(0)';
+            }
+        });
+
+        // レスポンシブ対応: ウィンドウリサイズ時の処理
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                const nav = document.getElementById('mainNav');
+                const menuToggle = document.getElementById('menuToggle');
+                
+                if (window.innerWidth > 768) {
+                    if (nav) nav.classList.remove('active');
+                    if (menuToggle) {
+                        menuToggle.classList.remove('active');
+                        const spans = menuToggle.querySelectorAll('span');
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    }
+                }
+            }, 250);
+        });
+
+        // コンソールログ
+        console.log('%c有限会社 明朋工業', 'font-size: 24px; font-weight: bold; color: #1a5490;');
+        console.log('%c会社案内サイトが正常に読み込まれました', 'font-size: 14px; color: #27ae60;');
+    </script>
+</body>
+</html>
