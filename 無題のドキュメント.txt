@@ -1,0 +1,381 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserve Any 月次カスタマーサクセスレポート (2025年10月度)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; background-color: #f3f4f6; }
+        .card { background-color: white; border-radius: 0.5rem; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); padding: 1.5rem; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-900">Reserve Any 月次カスタマーサクセスレポート</h1>
+                <p class="text-sm text-gray-500">対象期間: 2025年10月度 | 作成者: CSチーム</p>
+            </div>
+            <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center transition duration-150">
+                <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                <span>PDF保存 / 印刷</span>
+            </button>
+        </div>
+    </header>
+
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+
+
+        <!-- Section 1: Executive Summary -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Scorecards -->
+            <div class="card md:col-span-1 flex flex-col justify-center space-y-6">
+                <div>
+                    <p class="text-sm text-gray-500 font-medium">登録ユーザー数</p>
+                    <p class="text-4xl font-bold text-gray-900 mt-1">1,720 <span class="text-base font-normal text-gray-500">名</span></p>
+                    <p class="text-xs text-green-600 font-semibold mt-1">↑ 前月比 +40名</p>
+                </div>
+                <div class="border-t pt-6">
+                    <p class="text-sm text-gray-500 font-medium">管理スペース数</p>
+                    <p class="text-4xl font-bold text-gray-900 mt-1">315 <span class="text-base font-normal text-gray-500">室</span></p>
+                    <p class="text-xs text-green-600 font-semibold mt-1">↑ 前月比 +25室 (新オフィス)</p>
+                </div>
+            </div>
+
+
+            <!-- Highlights -->
+            <div class="card md:col-span-2 bg-blue-50 border-l-4 border-blue-500">
+                <h2 class="text-lg font-bold text-blue-900 mb-4 flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    今月のハイライト
+                </h2>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 h-5 w-5 text-green-500 mr-2">●</span>
+                        <span class="text-gray-700"><strong>平均稼働率が82%に到達</strong>。目標(80%)をクリアし、過去最高を記録しました。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 h-5 w-5 text-red-500 mr-2">●</span>
+                        <span class="text-gray-700"><strong>「カラ予約率」は8.5%</strong>。改善傾向ですが目標(5%)には届かず、継続対策が必要です。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 h-5 w-5 text-green-500 mr-2">●</span>
+                        <span class="text-gray-700"><strong>検索失敗数が大幅減 (28回)</strong>。水曜午前のピークシフト施策が奏功しています。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 h-5 w-5 text-yellow-500 mr-2">●</span>
+                        <span class="text-gray-700"><strong>定員乖離率 35%</strong>。4人用会議室の少人数利用が目立ちます（次月の重点課題）。</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- Section 2: Traffic & Adoption -->
+        <h2 class="text-xl font-bold text-gray-800 border-b pb-2 mt-8">1. 稼働・定着状況</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Avg Utilization Chart -->
+            <div class="card">
+                <h3 class="text-lg font-semibold text-gray-700 mb-4">全体稼働率の推移</h3>
+                <div class="relative h-64">
+                    <canvas id="chartUtilization"></canvas>
+                </div>
+            </div>
+
+
+            <!-- Room Type Breakdown -->
+            <div class="card">
+                <h3 class="text-lg font-semibold text-gray-700 mb-4">部屋タイプ別 総利用時間 (h)</h3>
+                <div class="relative h-64">
+                    <canvas id="chartRoomType"></canvas>
+                </div>
+            </div>
+            
+            <!-- Adoption Metrics -->
+            <div class="card lg:col-span-2">
+                <h3 class="text-lg font-semibold text-gray-700 mb-4">Reserve Any 定着指標 (Adoption)</h3>
+                <div class="relative h-64">
+                    <canvas id="chartAdoption"></canvas>
+                </div>
+                <p class="text-sm text-gray-500 mt-2 text-center">※おまかせ普及率(人数)とおまかせ利用率(回数)は順調に右肩上がりで推移中。</p>
+            </div>
+        </div>
+
+
+        <!-- Section 3: Efficiency & Optimization (THE KEY PART) -->
+        <h2 class="text-xl font-bold text-gray-800 border-b pb-2 mt-8 flex items-center text-red-600">
+            2. 効率性・最適化（無駄の可視化）
+            <span class="ml-2 text-xs bg-red-100 text-red-600 px-2 py-1 rounded-full">重要</span>
+        </h2>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Efficiency Chart -->
+            <div class="card lg:col-span-2">
+                <h3 class="text-lg font-semibold text-gray-700 mb-4">リソースの「無駄」指標の推移</h3>
+                <div class="relative h-72">
+                    <canvas id="chartEfficiency"></canvas>
+                </div>
+            </div>
+
+
+            <!-- Analysis Box -->
+            <div class="card bg-gray-50 border border-gray-200">
+                <h3 class="text-md font-bold text-gray-800 mb-3">▼ 分析コメント</h3>
+                <div class="space-y-4 text-sm">
+                    <div>
+                        <p class="font-bold text-red-600">【カラ予約率 (No-Show)】</p>
+                        <p class="text-gray-700 mt-1">現在 <span class="text-lg font-bold">8.5%</span> (目標 5%以下)</p>
+                        <p class="text-gray-600 mt-1">改善傾向ですが、まだ「12回に1回」は無駄が発生。特に営業部の夕方枠で多発しています。</p>
+                    </div>
+                    <hr class="border-gray-300">
+                    <div>
+                        <p class="font-bold text-yellow-600">【定員乖離率 (Mismatch)】</p>
+                        <p class="text-gray-700 mt-1">現在 <span class="text-lg font-bold">35.0%</span></p>
+                        <p class="text-gray-600 mt-1">4人用会議室を「1-2名」で利用しているケースが3割以上。Web会議ブース不足が主因と推測されます。</p>
+                    </div>
+                    <div class="bg-white p-3 rounded border border-gray-300 mt-2">
+                        <p class="font-bold text-gray-800 mb-1">💡 推奨アクション</p>
+                        <ul class="list-disc list-inside text-gray-600">
+                            <li>自動キャンセル時間を15分→10分へ短縮</li>
+                            <li>1人用ブースの増設計画の前倒し</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Section 4: Opportunity & Action -->
+        <h2 class="text-xl font-bold text-gray-800 border-b pb-2 mt-8">3. 機会損失・ネクストアクション</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Opportunity Loss Chart -->
+            <div class="card">
+                <h3 class="text-lg font-semibold text-gray-700 mb-4">検索失敗数（空き枠ゼロによる離脱）</h3>
+                <div class="relative h-64">
+                    <canvas id="chartOpportunity"></canvas>
+                </div>
+                <p class="text-xs text-right text-gray-400 mt-1">目標: 0回</p>
+            </div>
+
+
+            <!-- Dept Ranking -->
+            <div class="card">
+                <h3 class="text-lg font-semibold text-gray-700 mb-4">部門別 活用スコア (Top 5)</h3>
+                <div class="relative h-64 flex flex-col justify-center">
+                    <!-- Simple HTML bars for variety -->
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1"><span class="font-medium">営業1部</span><span>95pt</span></div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-blue-600 h-2.5 rounded-full" style="width: 95%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1"><span class="font-medium">開発部</span><span>88pt</span></div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-blue-500 h-2.5 rounded-full" style="width: 88%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1"><span class="font-medium">マーケティング</span><span>72pt</span></div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-blue-400 h-2.5 rounded-full" style="width: 72%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1"><span class="font-medium">営業2部</span><span>60pt</span></div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-yellow-400 h-2.5 rounded-full" style="width: 60%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1"><span class="font-medium">人事部</span><span>45pt</span></div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-red-400 h-2.5 rounded-full" style="width: 45%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Action Table -->
+        <div class="card overflow-hidden">
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">来月のアクションプラン</h3>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">カテゴリ</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">現状の課題</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">アクション</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">担当者</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ステータス</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">効率性</span></td>
+                            <td class="px-6 py-4">カラ予約率が8.5%で下げ止まり</td>
+                            <td class="px-6 py-4 font-medium text-gray-900">自動キャンセル設定を15分→10分へ短縮</td>
+                            <td class="px-6 py-4">CS担当</td>
+                            <td class="px-6 py-4 text-yellow-600">未着手</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">最適化</span></td>
+                            <td class="px-6 py-4">4人用会議室のミスマッチ多発</td>
+                            <td class="px-6 py-4">会議室前に「2名以上推奨」POP掲示</td>
+                            <td class="px-6 py-4">総務部</td>
+                            <td class="px-6 py-4 text-green-600">準備中</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">部門</span></td>
+                            <td class="px-6 py-4">人事部の活用が進んでいない</td>
+                            <td class="px-6 py-4">人事部定例にてオンボーディング実施</td>
+                            <td class="px-6 py-4">CS担当</td>
+                            <td class="px-6 py-4 text-green-600">完了</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </main>
+
+
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm">© 2025 Reserve Any Customer Success Team</p>
+        </div>
+    </footer>
+
+
+    <!-- Chart Scripts -->
+    <script>
+        const months = ["2025-08", "2025-09", "2025-10"];
+
+
+        // 1. Utilization Chart
+        new Chart(document.getElementById('chartUtilization'), {
+            type: 'line',
+            data: {
+                labels: months,
+                datasets: [
+                    {
+                        label: '平均稼働率 (%)',
+                        data: [75.0, 78.5, 82.0],
+                        borderColor: '#2563eb', // blue-600
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                        borderWidth: 3,
+                        tension: 0.3,
+                        fill: true
+                    },
+                    {
+                        label: '目標 (80%)',
+                        data: [80, 80, 80],
+                        borderColor: '#ef4444', // red-500
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        pointRadius: 0,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { min: 60, max: 100 } }
+            }
+        });
+
+
+        // 2. Room Type Chart
+        new Chart(document.getElementById('chartRoomType'), {
+            type: 'bar',
+            data: {
+                labels: months,
+                datasets: [
+                    { label: '1人用', data: [500, 550, 700], backgroundColor: '#93c5fd' },
+                    { label: '2人用', data: [400, 450, 500], backgroundColor: '#60a5fa' },
+                    { label: '4人用', data: [1400, 1500, 1600], backgroundColor: '#2563eb' },
+                    { label: '6人以上', data: [500, 550, 600], backgroundColor: '#1e40af' }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { x: { stacked: true }, y: { stacked: true } }
+            }
+        });
+
+
+        // 3. Adoption Chart
+        new Chart(document.getElementById('chartAdoption'), {
+            type: 'line',
+            data: {
+                labels: months,
+                datasets: [
+                    { label: 'Reserve Any利用率', data: [55.0, 62.0, 68.0], borderColor: '#2563eb', borderWidth: 2 },
+                    { label: 'おまかせ普及率(人数)', data: [30.0, 38.0, 45.0], borderColor: '#10b981', borderWidth: 2 },
+                    { label: 'おまかせ利用率(回数)', data: [20.0, 26.0, 32.0], borderColor: '#06b6d4', borderWidth: 2 }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { min: 0, max: 100 } }
+            }
+        });
+
+
+        // 4. Efficiency Chart
+        new Chart(document.getElementById('chartEfficiency'), {
+            type: 'bar',
+            data: {
+                labels: months,
+                datasets: [
+                    { 
+                        type: 'line',
+                        label: 'カラ予約率 (目標5%以下)', 
+                        data: [12.0, 10.5, 8.5], 
+                        borderColor: '#dc2626', // red-600
+                        borderWidth: 3,
+                        yAxisID: 'y'
+                    },
+                    { 
+                        type: 'bar',
+                        label: '定員乖離率', 
+                        data: [40.0, 38.0, 35.0], 
+                        backgroundColor: '#fcd34d', // yellow-300
+                        yAxisID: 'y'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { min: 0, max: 50 } }
+            }
+        });
+
+
+        // 5. Opportunity Chart
+        new Chart(document.getElementById('chartOpportunity'), {
+            type: 'bar',
+            data: {
+                labels: months,
+                datasets: [{
+                    label: '検索失敗回数',
+                    data: [55, 42, 28],
+                    backgroundColor: '#db2777', // pink-600
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
